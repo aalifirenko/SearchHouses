@@ -11,7 +11,12 @@
 |
 */
 
-Route::group(['middleware' => ['guest:api'], 'namespace' => 'Api'], function() {
-    Route::any('get-houses', 'HousesController@get_houses')->name('get_houses');
+Route::group(['middleware' => ['guest:api'], 'namespace' => 'Api', 'as' => 'api.'], function() {
+
+
+    # House
+    Route::group(['namespace' => 'House', 'as' => 'house.'], function() {
+        Route::get('get-houses', ['as' => 'house.list', 'uses' => 'ListController']);
+    });
 });
 

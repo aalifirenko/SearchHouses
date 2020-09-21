@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\House;
 
-use App\Http\Controllers\BaseApiController;
+use App\Http\Controllers\Controller;
 use App\Models\House;
+use App\Http\Resources\House as HouseResource;
 use Illuminate\Http\Request;
 
-class HousesController extends BaseApiController
+class ListController extends Controller
 {
-    public function get_houses(Request $request)
+    public function __invoke(Request $request)
     {
         $query = $request->input('q', '');
+
         $houses = House::where('name', 'LIKE', '%' . $query . '%')
             ->orWhere('price', $query)
             ->orWhere('bedrooms', $query)
@@ -19,8 +21,7 @@ class HousesController extends BaseApiController
             ->orWhere('storeys', $query)
             ->orWhere('garages', $query)
             ->get();
-        $this->status = true;
-        $this->data = $houses;
-        return $this->_response();
+
+        return HouseResource::collection($houses);
     }
 }

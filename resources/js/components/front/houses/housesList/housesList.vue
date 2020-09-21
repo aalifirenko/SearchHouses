@@ -7,7 +7,7 @@
         <v-list-item two-line v-for="houseItem in housesList.data" :key="houseItem.id">
             <v-list-item-content>
                 <v-list-item-title>{{ houseItem.name }}</v-list-item-title>
-                <v-list-item-subtitle>price: {{ houseItem.price }} $</v-list-item-subtitle>
+                <v-list-item-subtitle>price: ${{ houseItem.price_text }}</v-list-item-subtitle>
                 <v-list-item-subtitle>bedrooms: {{ houseItem.bedrooms }}</v-list-item-subtitle>
                 <v-list-item-subtitle>bathrooms: {{ houseItem.bathrooms }}</v-list-item-subtitle>
                 <v-list-item-subtitle>storeys: {{ houseItem.storeys }}</v-list-item-subtitle>
