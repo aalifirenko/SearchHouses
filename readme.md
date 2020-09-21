@@ -1,5 +1,5 @@
-# Laravel Vuetify SPA Starter
-Starter SPA built with Laravel 6.0, JWT Auth, Vue 2, Vue Router 3, Vuex 3, Axios, Vuetify 2
+# Laravel
+Laravel Test Task for search houses
 
 ## Included
 * [Laravel 6.0](https://laravel.com/docs/6.0)
